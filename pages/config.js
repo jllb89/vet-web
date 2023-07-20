@@ -224,7 +224,7 @@ function showSuccessMessage() {
 
 // Function to redirect to home.html
 function redirectToHome() {
-  window.location.href = 'vetoncall.app';
+  window.location.href = 'http://www.vetoncall.app';
 }
 
 // Show initial step
