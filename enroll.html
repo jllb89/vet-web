@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Messages | Firebase</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="home.html"><img src="media/logo.svg" alt="Logo"></a>
+      </div>
+      <div class="navbar-buttons">
+        <a href="home.html" class="navbar-right-link">Salir</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <form action="" id="formulario">
+      
+     
+      <div class="step" id="step1">
+        <p class="text-c">
+          Te invitamos a diversificar tus servicios, incrementando tu clientela, posicionando a tu centro de atención como punto de referencia. Nuestra comunidad requiere de centros para atención especializada en distintos puntos de la república, por lo que te invitamos a formar parte de nuestra red.
+          <br>
+          Innovemos juntos la atención de salud animal.</p>
+        <p>Ingresa el nombre del centro de atención que desees dar de alta aquí:</p>
+        <div class="inputBox">
+          <input type="text" id="name" placeholder="Tu nombre...." />
+        </div>
+      </div>
+
+      <div class="step" id="step2">
+        <p>Ingresa un correo electrónico de contacto:</p>
+        <div class="inputBox">
+          <input type="text" id="emailid" name="emailid" placeholder="Correo electrónico....." />
+        </div>
+      </div>
+
+      <div class="step" id="step3">
+        <p>Ingresa un número de teléfono de contacto:</p>
+        <div class="inputBox">
+          <input type="text" id="phoneNumber" placeholder="Número de contacto a diez dígitos...." />
+        </div>
+      </div>      
+
+      <div class="step" id="step4">
+        <p>Ingresa la dirección del centro de atención a dar de alta:</p>
+        <div class="inputBox">
+          <input type="text" id="centerDescription" placeholder="Dirección...." />
+        </div>
+      </div>
+
+      <div class="step" id="step5">
+        <p class="step5-text">Selecciona los servicios que podrías brindar por medio de nuestra plataforma:</p>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 1" /> Consultas de aparato locomotor
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 2" /> Consultas de aparato respiratorio
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 3" /> Consultas de aparato digestivo
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 4" /> Oftalmología
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 5" /> Consultas de aparato neurológico
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 6" /> Consultas dentales
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 7" /> Consultas dermatológicas
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 8" /> Evaluación de radiografías
+        </div>
+        <div class="inputBox">
+          <input type="checkbox" name="services" value="Service 9" /> Evaluación de ultrasonidos
+        </div>
+      </div>
+
+      <div class="inputBox">
+        <button type="button" id="prevBtn">Atrás</button>
+        <button type="button" id="nextBtn">Siguiente</button>
+        <button type="submit" id="submitBtn">Enviar</button>
+      </div>
+
+      <div id="alertMessage" style="display: none;"></div>
+      <div id="errorMessage" style="display: none"></div>
+    </form>
+
+    <div id="successMessage" style="display: none;">
+      Gracias por tu interés en formar parte de nuestro equipo.<br>
+      Tu información ha sido enviada y recibida con éxito!<br>
+      No es necesario volver a llenar el formulario.<br>
+      Nuestro equipo revisará tu información y nos pondremos en contacto contigo.
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="./enroll.js"></script>
+</body>
+
+</html>
