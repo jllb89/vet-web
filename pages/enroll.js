@@ -11,7 +11,6 @@ const firebaseConfig = {
     measurementId: "G-1BBTH1PLD1"
   };
 
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -20,7 +19,7 @@ const formulario = firebase.database().ref('formulario');
 
 // Step variables
 let currentStep = 0;
-const totalSteps = 4; // Update this value to the total number of steps
+const totalSteps = 5; // Update this value to the total number of steps
 
 // Event listener for next button
 document.getElementById('nextBtn').addEventListener('click', nextStep);
@@ -34,7 +33,6 @@ function showStep(stepIndex) {
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const submitBtn = document.getElementById('submitBtn');
-  const input = document.getElementById('name'); // Get the input element
 
   for (let i = 0; i < steps.length; i++) {
     if (i === stepIndex) {
@@ -83,7 +81,20 @@ prevBtn.disabled = true;
 // Function to navigate to the next step
 function nextStep() {
   if (currentStep < totalSteps - 1) {
-    if (currentStep === 1) {
+    if (currentStep === 0) {
+      const name = getElementVal('name');
+      if (name.trim() === '') {
+        // Show error message for empty name
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.textContent = 'Please enter your name.';
+        alertMessage.style.display = 'block';
+        // Hide alert message after 3 seconds
+        setTimeout(function () {
+          alertMessage.style.display = 'none';
+        }, 3000);
+        return;
+      }
+    } else if (currentStep === 1) {
       const emailid = getElementVal('emailid');
       if (!validateEmail(emailid)) {
         // Show error message for invalid email format
@@ -96,7 +107,34 @@ function nextStep() {
         }, 3000);
         return;
       }
+    } else if (currentStep === 2) {
+      const phoneNumber = getElementVal('phoneNumber');
+      if (!validatePhoneNumber(phoneNumber)) {
+        // Show error message for invalid phone number format
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.textContent = 'Por favor introduce un número telefónico a diez dígitos.';
+        alertMessage.style.display = 'block';
+        // Hide alert message after 3 seconds
+        setTimeout(function () {
+          alertMessage.style.display = 'none';
+        }, 3000);
+        return;
+      }
+    } else if (currentStep === 3) {
+      const centerDescription = getElementVal('centerDescription');
+      if (centerDescription.trim() === '') {
+        // Show error message for empty center description
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.textContent = 'Please enter a center description.';
+        alertMessage.style.display = 'block';
+        // Hide alert message after 3 seconds
+        setTimeout(function () {
+          alertMessage.style.display = 'none';
+        }, 3000);
+        return;
+      }
     }
+
     currentStep++;
     showStep(currentStep);
   }
@@ -120,11 +158,12 @@ function submitForm(e) {
   if (currentStep === totalSteps - 1) {
     const name = getElementVal('name');
     const emailid = getElementVal('emailid');
-    const msgContent = getElementVal('msgContent');
+    const phoneNumber = getElementVal('phoneNumber');
+    const centerDescription = getElementVal('centerDescription');
     const services = getSelectedServices();
 
     // Check if all required fields are filled
-    if (!name || !emailid || !msgContent || services.length === 0) {
+    if (!name || !emailid || !phoneNumber || !centerDescription || services.length === 0) {
       // Show error message for empty required fields
       const errorMessage = document.getElementById('errorMessage');
       errorMessage.textContent = 'Please fill out all required fields.';
@@ -150,15 +189,15 @@ function submitForm(e) {
     }
 
     // Save data in Firebase
-    saveMessages(name, emailid, msgContent, services);
-
-    // Show success message
-    showSuccessMessage();
+    saveMessages(name, emailid, phoneNumber, centerDescription, services);
 
     // Reset form
     document.getElementById('formulario').reset();
     currentStep = 0;
     showStep(currentStep);
+
+    // Show success message
+    showSuccessMessage();
   }
 }
 
@@ -166,6 +205,12 @@ function submitForm(e) {
 function validateEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
+}
+
+// Function to validate phone number format
+function validatePhoneNumber(phoneNumber) {
+  const regex = /^\d{10}$/;
+  return regex.test(phoneNumber);
 }
 
 // Function to reset the form
@@ -180,12 +225,13 @@ function resetForm() {
 }
 
 // Function to save messages in Firebase
-function saveMessages(name, emailid, msgContent, services) {
+function saveMessages(name, emailid, phoneNumber, centerDescription, services) {
   const newFormulario = formulario.push();
   newFormulario.set({
     name: name,
     emailid: emailid,
-    msgContent: msgContent,
+    phoneNumber: phoneNumber,
+    centerDescription: centerDescription,
     services: services,
   });
 }
@@ -202,15 +248,14 @@ function getSelectedServices() {
 
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      const checkboxContainer = checkboxes[i].closest('.inputBox');
-      selectedServices.push(checkboxContainer.textContent.trim());
+      selectedServices.push(checkboxes[i].value);
     }
   }
 
   return selectedServices;
 }
 
-// Function to display success message
+// Function to display success message and redirect to home.html
 function showSuccessMessage() {
   const successMessage = document.getElementById('successMessage');
   successMessage.style.display = 'block';
@@ -224,7 +269,7 @@ function showSuccessMessage() {
 
 // Function to redirect to home.html
 function redirectToHome() {
-  window.location.href = 'home.html';
+  window.location.href = 'vetoncall.app';
 }
 
 // Show initial step

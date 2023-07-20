@@ -6,17 +6,17 @@
 
 @font-face {
   font-family: titles;
-  src: url(media/Raleway-Bold.ttf);
+  src: url(../media/Raleway-Bold.ttf);
 }
 
 @font-face {
   font-family: texts;
-  src: url(media/Raleway-Regular.ttf);
+  src: url(../media/Raleway-Regular.ttf);
 }
 
 @font-face {
   font-family: support;
-  src: url(media/Raleway-Light.ttf);
+  src: url(../media/Raleway-Light.ttf);
 }
 
 h1 {
