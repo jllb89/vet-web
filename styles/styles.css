@@ -132,6 +132,7 @@ body {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1.5rem;
+  
 }
 
 .navbar:hover {
@@ -435,6 +436,10 @@ p {
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) { 
 
+  .navbar.mobile-bg {
+    background: rgba(20, 14, 23, .95);
+  }
+
   .row {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -527,6 +532,10 @@ p {
     border-radius: 5px;
     position: relative;
     padding-top: 2rem;
+  }
+  
+  .navbar {
+    background: rgba(20, 14, 23, 0.8); /* Set the desired background color for mobile */
   }
   
 }
