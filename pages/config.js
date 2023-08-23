@@ -20,7 +20,7 @@ const formulario = firebase.database().ref('formulario');
 
 // Step variables
 let currentStep = 0;
-const totalSteps = 4; // Update this value to the total number of steps
+const totalSteps = 5; // Update this value to the total number of steps
 
 // Event listener for next button
 document.getElementById('nextBtn').addEventListener('click', nextStep);
@@ -123,8 +123,11 @@ function submitForm(e) {
     const msgContent = getElementVal('msgContent');
     const services = getSelectedServices();
 
+
+    const numberInput = getElementVal('numberInput');
+
     // Check if all required fields are filled
-    if (!name || !emailid || !msgContent || services.length === 0) {
+    if (!name || !emailid || !msgContent || services.length === 0 || !numberInput) {
       // Show error message for empty required fields
       const errorMessage = document.getElementById('errorMessage');
       errorMessage.textContent = 'Please fill out all required fields.';
@@ -150,7 +153,7 @@ function submitForm(e) {
     }
 
     // Save data in Firebase
-    saveMessages(name, emailid, msgContent, services);
+    saveMessages(name, emailid, msgContent, services, numberInput);
 
     // Show success message
     showSuccessMessage();
@@ -180,15 +183,17 @@ function resetForm() {
 }
 
 // Function to save messages in Firebase
-function saveMessages(name, emailid, msgContent, services) {
+function saveMessages(name, emailid, msgContent, services, number) {
   const newFormulario = formulario.push();
   newFormulario.set({
-    name: name,
-    emailid: emailid,
-    msgContent: msgContent,
-    services: services,
+      name: name,
+      emailid: emailid,
+      msgContent: msgContent,
+      services: services,
+      number: number
   });
 }
+
 
 // Function to get element value by ID
 function getElementVal(id) {

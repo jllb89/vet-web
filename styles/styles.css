@@ -227,10 +227,15 @@ max-width: 100%}
   padding-top: 2rem;
 }
 
+.inputBox-5 {
+  width: 100%;
+}
+
 .inputBox input[type="text"],
 .inputBox input[type="email"],
 .inputBox input[type="phonenumber"],
-.inputBox input[type="centerDescription"] {
+.inputBox input[type="centerDescription"],
+.inputBox input[type="number"] {
   width: 100%;
   height: 50px;
   border-radius: 10px;
