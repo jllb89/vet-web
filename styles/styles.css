@@ -202,6 +202,9 @@ justify-content: center;
 align-content: center;
 max-width: 100%}
 
+.img {
+  max-width: 50%}
+
 .img-header-2 {
   justify-content: center;
   align-content: center;
@@ -465,6 +468,10 @@ p {
     font-size: 2rem;
   }
 
+
+.img {
+  max-width: 30%}
+
   .img-header {
     display: block;
     width: 100%;
@@ -567,6 +574,9 @@ p {
     line-height: 120%;
   }
 
+  .img {
+    max-width: 40%}
+
   .img-header {
     display: block;
     width: 100%;
@@ -637,6 +647,11 @@ p {
     padding-right: 1rem;
     line-height: 120%;
   }
+
+  .img {
+    max-width: 40%}
+
+
   .img-header {
     display: block;
     align-items: center;
