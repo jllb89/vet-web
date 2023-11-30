@@ -558,7 +558,7 @@ p {
 }
 
 /* Medium devices (tablets, less than 992px) */
-@media (max-width: 992px) {  /* Adjust this breakpoint depending on when you want the mobile view to kick in */
+@media (max-width: 1400px) {  /* Adjust this breakpoint depending on when you want the mobile view to kick in */
   .navbar-nav .nav-link {
     padding-top: 2rem;  /* Adjust the padding value as needed */
   }
@@ -631,7 +631,7 @@ p {
 
 
 /* Large devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) { 
+@media (max-width: 1500px) { 
 
   .navbar-nav .nav-link {
     padding-top: 2rem;  /* Adjust the padding value as needed */
