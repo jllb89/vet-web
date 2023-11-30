@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro en Platforma</title>
+  <link rel="icon" type="image/png" href="../media/favicon.png">
+    <meta name="description" content="Call a Vet, la revolucionaria aplicación que pone la atención veterinaria al alcance de tus dedos.">
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="../index.html"><img src="../media/logo.svg" alt="Logo"></a>
+      </div>
+      <div class="navbar-buttons">
+        <a href="../index.html" class="navbar-right-link">Salir</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <form action="" id="formulario">
+      
+     
+      <div class="step" id="step1">
+        <p class="text-c">
+          Estamos contentos de que elijas ser parte de este grupo selecto de profesionales.<br>
+          Rellena el formulario a continuación para comenzar tu viaje con Call a Vet.
+          <br>
+          Innovemos juntos la atención de salud animal.</p>
+        <p>Ingresa tu nombre completo aquí:</p>
+        <div class="inputBox">
+          <input type="text" id="name" placeholder="Tu nombre...." />
+        </div>
+      </div>
+
+      <div class="step" id="step2">
+        <p>Ingresa tu correo electrónico:</p>
+        <div class="inputBox">
+          <input type="text" id="emailid" name="emailid" placeholder="Correo electrónico....." />
+        </div>
+      </div>
+
+      <div class="step" id="step3">
+        <p>Ingresa una breve descripción acerca de los servicios o productos que se ofrecerían por medio de nuestra plataforma:</p>
+        <div class="inputBox">
+            <textarea id="serviceDescription" cols="30" rows="10" placeholder="Agrega tu resumen aquí."></textarea>
+        </div>
+      </div>
+
+      <div class="step" id="step4">
+        <p>¡Queremos saber más de tu negocio! Cuéntanos un poco sobre su trayectoria, orígenes, zonas en las que ofreces tus productos o servicios o cualquier detalle que nos quieras compartir que nos sirva para conocerte mejor.</p>
+        <div class="inputBox">
+            <textarea id="businessInfo" cols="30" rows="10" placeholder="Cuéntanos aquí."></textarea>
+        </div>
+      </div>
+
+      <div class="inputBox">
+        <button type="button" id="prevBtn">Atrás</button>
+        <button type="button" id="nextBtn">Siguiente</button>
+        <button type="submit" id="submitBtn">Enviar</button>
+      </div>
+
+      <div id="alertMessage" style="display: none;"></div>
+      <div id="errorMessage" style="display: none"></div>
+    </form>
+
+    <div id="successMessage" style="display: none;">
+      Gracias por tu interés en formar parte de nuestro equipo.<br>
+      Tu información ha sido enviada y recibida con éxito!<br>
+      No es necesario volver a llenar el formulario.<br>
+      Nuestro equipo revisará tu información y nos pondremos en contacto contigo.
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="suppliersForm.js"></script>
+</body>
+
+</html>
